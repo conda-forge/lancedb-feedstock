@@ -1,5 +1,5 @@
 {% set name = "lancedb" %}
-{% set version = "0.5.5" %}
+{% set version = "0.5.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/lancedb-{{ version }}.tar.gz
-  sha256: 034ef65d1456ca7f0f9dfc33c93d7cbfa893b45411d218258f1c01a1c069bdbf
+  sha256: 88b220855050696c3e0b1e5ba0f2cb0f2dcf81041ca5015b625ad36d641e66fb
 
 build:
   entry_points:
