@@ -6,3 +6,8 @@ conda_build:
 conda_forge_output_validation: true
 bot:
   automerge: true
+azure:
+  settings_win:
+    variables:
+      CONDA_BLD_PATH: C:\\bld\\  # <- potentially not necessary, but C: tends to have more space (~70 GB) available
+      SET_PAGEFILE: "True"
