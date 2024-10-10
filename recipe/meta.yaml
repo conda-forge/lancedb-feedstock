@@ -28,6 +28,7 @@ requirements:
     - python
     - maturin >=1.4
     - pip
+    - openssl
   run:
     - python
     - deprecation
