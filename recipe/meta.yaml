@@ -24,7 +24,6 @@ requirements:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - maturin >=1.4                       # [build_platform != target_platform]
-    - openssl                             # [build_platform != target_platform]
   host:
     - python
     - maturin >=1.4
@@ -41,6 +40,7 @@ requirements:
     - packaging
     - cachetools
     - overrides >=0.7
+    - openssl
 
 test:
   imports:
