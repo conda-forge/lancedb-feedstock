@@ -30,7 +30,6 @@ requirements:
     - pip
     - openssl
   run:
-    - ratelimiter
     - python
     - deprecation
     - pylance >=0.4.4
