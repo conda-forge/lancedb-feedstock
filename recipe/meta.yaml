@@ -32,7 +32,6 @@ requirements:
   run:
     - aiohttp
     - attr
-    - ratelimiter
     - semver >=3.0
     - python
     - deprecation
