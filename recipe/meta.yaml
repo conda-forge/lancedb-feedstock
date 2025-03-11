@@ -31,7 +31,6 @@ requirements:
     - openssl
   run:
     - aiohttp
-    - attr
     - semver >=3.0
     - python
     - deprecation
