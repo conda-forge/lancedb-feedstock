@@ -30,10 +30,9 @@ requirements:
     - pip
     - openssl
   run:
-    - ratelimiter
     - python
     - deprecation
-    - pylance >=0.4.4
+    - pylance =0.24.0
     - requests >=2.31.0
     - retry
     - tqdm
