@@ -32,7 +32,7 @@ requirements:
   run:
     - python
     - deprecation
-    - pylance >=0.4.6
+    - pylance =0.24.0
     - requests >=2.31.0
     - retry
     - tqdm
