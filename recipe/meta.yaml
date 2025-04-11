@@ -32,16 +32,24 @@ requirements:
   run:
     - python
     - deprecation
-    - pylance =0.24.0
-    - requests >=2.31.0
-    - retry
-    - tqdm
-    - pydantic >=1.10
-    - attrs >=21.3.0
-    - packaging
-    - cachetools
+    - numpy
     - overrides >=0.7
-    - nest-asyncio
+    - packaging
+    - pyarrow >=14
+    - pydantic >=1.10
+    - tqdm >=4.27.0
+
+    # - deprecation
+    # - pylance =0.24.0
+    # - requests >=2.31.0
+    # - retry
+    # - tqdm
+    # - pydantic >=1.10
+    # - attrs >=21.3.0
+    # - packaging
+    # - cachetools
+    # - overrides >=0.7
+    # - nest-asyncio
 
 test:
   imports:
