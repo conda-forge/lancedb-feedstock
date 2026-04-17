@@ -1,20 +1,19 @@
 schema_version: 1
 
 context:
-  name: lancedb
-  version: "0.21.1"
+  version: "0.30.0"
 
 package:
-  name: ${{ name|lower }}
+  name: lancedb 
   version: ${{ version }}
 
 source:
   url: https://github.com/lancedb/lancedb/archive/python-v${{ version }}.tar.gz
-  sha256: 0725a1b5d3d80658e55f596ba7dac362c6970b12007ab3af8f91165823563db0
+  sha256: bc6f98729534b8f08e15097f2e112d1afaa10eb6891579231ec31ed782c005f4
 
 build:
   number: 0
-  skip: match(python, "<=3.8")
+  skip: match(python, "<3.10")
 
 requirements:
   build:
@@ -25,11 +24,10 @@ requirements:
     - pkg-config
     - libprotobuf
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: maturin >=1.4
+      then: 
+        - python
+        - cross-python_${{ target_platform }}
+        - maturin >=1.4
   host:
     - python
     - maturin >=1.4
@@ -37,17 +35,15 @@ requirements:
     - openssl
   run:
     - python
-    - deprecation
-    - pylance =0.24.0
-    - requests >=2.31.0
-    - retry
-    - tqdm
+    - deprecation >=2.1.0
+    - lance-namespace >=0.3.2
+    - tqdm >=4.27.0
     - pydantic >=1.10
-    - attrs >=21.3.0
-    - packaging
-    - cachetools
-    - overrides >=0.7
-    - nest-asyncio
+    - packaging >=23.0
+    - pyarrow >=16
+    - if: match(python, "<3.12")
+      then: overrides >=0.7 
+    - numpy >=1.24.0
 
 tests:
   - python:
