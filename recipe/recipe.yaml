@@ -4,7 +4,7 @@ context:
   version: "0.30.0"
 
 package:
-  name: lancedb 
+  name: lancedb
   version: ${{ version }}
 
 source:
@@ -12,7 +12,7 @@ source:
   sha256: bc6f98729534b8f08e15097f2e112d1afaa10eb6891579231ec31ed782c005f4
 
 build:
-  number: 0
+  number: 1
   skip: match(python, "<3.10")
 
 requirements:
@@ -24,7 +24,7 @@ requirements:
     - pkg-config
     - libprotobuf
     - if: build_platform != host_platform
-      then: 
+      then:
         - python
         - cross-python_${{ host_platform }}
         - maturin >=1.4
@@ -42,7 +42,7 @@ requirements:
     - packaging >=23.0
     - pyarrow >=16
     - if: match(python, "<3.12")
-      then: overrides >=0.7 
+      then: overrides >=0.7
     - numpy >=1.24.0
 
 tests:
