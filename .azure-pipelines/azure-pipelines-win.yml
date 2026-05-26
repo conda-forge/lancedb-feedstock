@@ -11,10 +11,10 @@ jobs:
       win_64_python3.14.____cp314:
         CONFIG: win_64_python3.14.____cp314
         UPLOAD_PACKAGES: 'True'
-        build_workspace_dir: C:\\bld\\
+        build_workspace_dir: D:\\bld\\
         pagefile_size: 8GiB
         store_build_artifacts: false
-        tools_install_dir: C:\Miniforge
+        tools_install_dir: D:\Miniforge
   timeoutInMinutes: 360
   variables:
     SET_PAGEFILE: 'True'
@@ -25,7 +25,6 @@ jobs:
     - script: |
         if "%SET_PAGEFILE_SIZE:~0,1%" NEQ "0" (
             set SET_PAGEFILE=True
-            echo pagefile enabled
         )
         call ".scripts\run_win_build.bat"
       displayName: Run Windows build
