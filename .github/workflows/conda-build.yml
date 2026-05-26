@@ -152,6 +152,7 @@ jobs:
         set "sha=%GITHUB_SHA%"
         if "%SET_PAGEFILE_SIZE:~0,1%" NEQ "0" (
             set SET_PAGEFILE=True
+            echo Enable pagefile
         )
         call ".scripts\run_win_build.bat"
       env:
