@@ -38,6 +38,9 @@ jobs:
   steps:
 
     - script: |
+        if "%SET_PAGEFILE_SIZE:~0,1%" NEQ "0" (
+            set SET_PAGEFILE=True
+        )
         call ".scripts\run_win_build.bat"
       displayName: Run Windows build
       env:
@@ -51,6 +54,7 @@ jobs:
         sha: $(Build.SourceVersion)
         UPLOAD_PACKAGES: $(UPLOAD_PACKAGES)
         UPLOAD_TEMP: $(UPLOAD_TEMP)
+        SET_PAGEFILE_SIZE: $(pagefile_size)
         BINSTAR_TOKEN: $(BINSTAR_TOKEN)
         FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
         STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
