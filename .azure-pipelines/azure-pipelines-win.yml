@@ -1,0 +1,52 @@
+# This file was generated automatically from conda-smithy. To update this configuration,
+# update the conda-forge.yml and/or the recipe/meta.yaml.
+# -*- mode: yaml -*-
+
+jobs:
+- job: win
+  pool:
+    vmImage: windows-2022
+  strategy:
+    matrix:
+      win_64_python3.13.____cp313:
+        CONFIG: win_64_python3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: C:\\bld\\
+        pagefile_size: 8GiB
+        store_build_artifacts: false
+        tools_install_dir: C:\Miniforge
+      win_64_python3.14.____cp314:
+        CONFIG: win_64_python3.14.____cp314
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: C:\\bld\\
+        pagefile_size: 8GiB
+        store_build_artifacts: false
+        tools_install_dir: C:\Miniforge
+  timeoutInMinutes: 360
+  variables:
+    SET_PAGEFILE: 'True'
+    UPLOAD_TEMP: D:\\tmp
+
+  steps:
+
+    - script: |
+        if "%SET_PAGEFILE_SIZE:~0,1%" NEQ "0" (
+            set SET_PAGEFILE=True
+        )
+        call ".scripts\run_win_build.bat"
+      displayName: Run Windows build
+      env:
+        MINIFORGE_HOME: $(tools_install_dir)
+        CONDA_BLD_PATH: $(build_workspace_dir)
+        PYTHONUNBUFFERED: 1
+        CONFIG: $(CONFIG)
+        CI: azure
+        flow_run_id: azure_$(Build.BuildNumber).$(System.JobAttempt)
+        remote_url: $(Build.Repository.Uri)
+        sha: $(Build.SourceVersion)
+        UPLOAD_PACKAGES: $(UPLOAD_PACKAGES)
+        UPLOAD_TEMP: $(UPLOAD_TEMP)
+        SET_PAGEFILE_SIZE: $(pagefile_size)
+        BINSTAR_TOKEN: $(BINSTAR_TOKEN)
+        FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
+        STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
