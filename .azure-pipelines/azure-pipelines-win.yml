@@ -25,6 +25,7 @@ jobs:
     - script: |
         if "%SET_PAGEFILE_SIZE:~0,1%" NEQ "0" (
             set SET_PAGEFILE=True
+            echo pagefile enabled
         )
         call ".scripts\run_win_build.bat"
       displayName: Run Windows build
