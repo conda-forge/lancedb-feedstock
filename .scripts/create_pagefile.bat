@@ -1,7 +1,5 @@
 setlocal enableextensions enabledelayedexpansion
 
-echo PAGEFILE
-
 set SET_PAGEFILE_SIZE=%1%
 if "%SET_PAGEFILE_SIZE%" NEQ "0" (
     set SET_PAGEFILE=True
@@ -22,8 +20,6 @@ if /i "%CONDA_BLD_PATH%" == "C:\\bld\\" set "PageFileDrive=D:"
 if /i "%CONDA_BLD_PATH%" == "D:\bld" set "PageFileDrive=C:"
 if /i "%CONDA_BLD_PATH%" == "D:\bld\" set "PageFileDrive=C:"
 if /i "%CONDA_BLD_PATH%" == "D:\\bld\\" set "PageFileDrive=C:"
-
-echo "SET_PAGEFILE=%SET_PAGEFILE%"
 
 :: Only run if SET_PAGEFILE is set; EntryPointPath needs to be set outside if-condition when not using EnableDelayedExpansion.
 if "%SET_PAGEFILE%" NEQ "" (
