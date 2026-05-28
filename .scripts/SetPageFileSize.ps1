@@ -42,20 +42,20 @@ namespace Util
             internal uint LowPart;
             internal uint HighPart;
         }
-    
+
         [StructLayout(LayoutKind.Sequential)]
         internal struct LUID_AND_ATTRIBUTES
         {
             internal LUID Luid;
             internal uint Attributes;
         }
-    
+
         [StructLayout(LayoutKind.Sequential)]
         internal struct TOKEN_PRIVILEGE
         {
             internal uint PrivilegeCount;
             internal LUID_AND_ATTRIBUTES Privilege;
-    
+
             internal static readonly uint Size = (uint)Marshal.SizeOf(typeof(TOKEN_PRIVILEGE));
         }
 
@@ -118,7 +118,7 @@ namespace Util
         private SafeCloseHandle() : base(true)
         {
         }
- 
+
         public SafeCloseHandle(IntPtr preexistingHandle, bool ownsHandle) : base(ownsHandle) 
         {
             SetHandle(preexistingHandle);
