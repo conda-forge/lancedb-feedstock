@@ -151,7 +151,7 @@ jobs:
         set "flow_run_id=github_%GITHUB_RUN_ID%"
         set "remote_url=https://github.com/%GITHUB_REPOSITORY%"
         set "sha=%GITHUB_SHA%"
-        call ".scripts\create_pagefile.bat" "%SET_PAGEFILE_SIZE%"
+        call ".scripts\create_pagefile.bat" %SET_PAGEFILE_SIZE%
         call ".scripts\run_win_build.bat"
       env:
         MINIFORGE_HOME: ${{ matrix.tools_install_dir }}

@@ -19,7 +19,7 @@ if /i "%CONDA_BLD_PATH%" == "D:\bld\" set "PageFileDrive=C:"
 if /i "%CONDA_BLD_PATH%" == "D:\\bld\\" set "PageFileDrive=C:"
 
 :: Only run if SET_PAGEFILE is set; EntryPointPath needs to be set outside if-condition when not using EnableDelayedExpansion.
-echo "SET_PG=%SET_PAGEFILE_SIZE%"
+echo "SPS=%SET_PAGEFILE_SIZE%"
 if "%SET_PAGEFILE_SIZE%" GTR "0" (
     if not "%PageFileDrive%" == "" (
         echo CONDA_BLD_PATH=%CONDA_BLD_PATH%; Setting pagefile size to %SET_PAGEFILE_SIZE% GiB in %PageFileDrive%
