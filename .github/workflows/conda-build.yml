@@ -85,7 +85,7 @@ jobs:
         DOCKER_IMAGE: ${{ matrix.DOCKER_IMAGE }}
         CI: github_actions
         CONDA_FORGE_DOCKER_RUN_ARGS: "${{ matrix.docker_run_args }}"
-        SET_PAGEFILE_SIZE: "${{ matrix.pagefile_size }}"
+        SET_PAGEFILE_SIZE: ${{ matrix.pagefile_size }}
         BINSTAR_TOKEN: ${{ secrets.BINSTAR_TOKEN }}
         FEEDSTOCK_TOKEN: ${{ secrets.FEEDSTOCK_TOKEN }}
         STAGING_BINSTAR_TOKEN: ${{ secrets.STAGING_BINSTAR_TOKEN }}
@@ -160,7 +160,7 @@ jobs:
         CONFIG: ${{ matrix.CONFIG }}
         CI: github_actions
         UPLOAD_PACKAGES: ${{ matrix.UPLOAD_PACKAGES }}
-        SET_PAGEFILE_SIZE: "${{ matrix.pagefile_size }}"
+        SET_PAGEFILE_SIZE: ${{ matrix.pagefile_size }}
         BINSTAR_TOKEN: ${{ secrets.BINSTAR_TOKEN }}
         FEEDSTOCK_TOKEN: ${{ secrets.FEEDSTOCK_TOKEN }}
         STAGING_BINSTAR_TOKEN: ${{ secrets.STAGING_BINSTAR_TOKEN }}
