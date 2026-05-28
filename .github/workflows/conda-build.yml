@@ -28,7 +28,7 @@ jobs:
             os: windows
             runs_on: ['windows-latest']
             tools_install_dir: D:\Miniforge
-            build_workspace_dir: D:\\bld\\
+            build_workspace_dir: C:\dupa
             docker_run_args: 
             pagefile_size: 15
     steps:
