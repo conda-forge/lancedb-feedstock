@@ -1,5 +1,7 @@
 setlocal enableextensions enabledelayedexpansion
 
+echo PAGEFILE
+
 set SET_PAGEFILE_SIZE=%1%
 if "%SET_PAGEFILE_SIZE%" NEQ "0" (
     set SET_PAGEFILE=True
@@ -21,15 +23,15 @@ if /i "%CONDA_BLD_PATH%" == "D:\bld" set "PageFileDrive=C:"
 if /i "%CONDA_BLD_PATH%" == "D:\bld\" set "PageFileDrive=C:"
 if /i "%CONDA_BLD_PATH%" == "D:\\bld\\" set "PageFileDrive=C:"
 
+echo "SET_PAGEFILE=%SET_PAGEFILE%"
+
 :: Only run if SET_PAGEFILE is set; EntryPointPath needs to be set outside if-condition when not using EnableDelayedExpansion.
 if "%SET_PAGEFILE%" NEQ "" (
-    if "%CI%" == "azure" (
-        if not "%PageFileDrive%" == "" (
-            echo CONDA_BLD_PATH=%CONDA_BLD_PATH%; Setting pagefile size to 16GB in %PageFileDrive%
-            REM Inspired by:
-            REM https://blog.danskingdom.com/allow-others-to-run-your-powershell-scripts-from-a-batch-file-they-will-love-you-for-it/
-            REM Drive-letter needs to be escaped in quotes
-            PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& '%EntryPointPath%' -MinimumSize 8GB -MaximumSize 16GB -DiskRoot \"%PageFileDrive%\""
-        )
+    if not "%PageFileDrive%" == "" (
+        echo CONDA_BLD_PATH=%CONDA_BLD_PATH%; Setting pagefile size to 16GB in %PageFileDrive%
+        REM Inspired by:
+        REM https://blog.danskingdom.com/allow-others-to-run-your-powershell-scripts-from-a-batch-file-they-will-love-you-for-it/
+        REM Drive-letter needs to be escaped in quotes
+        PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& '%EntryPointPath%' -MinimumSize 8GB -MaximumSize 16GB -DiskRoot \"%PageFileDrive%\""
     )
 )
