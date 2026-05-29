@@ -28,9 +28,7 @@ jobs:
 
   steps:
     - script: |
-        call ".scripts\create_pagefile.bat" %SET_PAGEFILE_SIZE%
-      env:
-        SET_PAGEFILE_SIZE: $(pagefile_size)
+        call ".scripts\create_pagefile.bat" $(pagefile_size)
       displayName: Create page file
     - script: |
         call ".scripts\run_win_build.bat"
