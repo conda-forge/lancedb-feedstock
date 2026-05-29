@@ -28,7 +28,7 @@ jobs:
 
   steps:
     - script: |
-        call ".scripts\create_pagefile.bat" %SET_PAGEFILE_SIZE%
+        call ".scripts\create_pagefile.bat" $(pagefile_size)
       displayName: Create page file
     - script: |
         call ".scripts\run_win_build.bat"
@@ -44,7 +44,6 @@ jobs:
         sha: $(Build.SourceVersion)
         UPLOAD_PACKAGES: $(UPLOAD_PACKAGES)
         UPLOAD_TEMP: $(UPLOAD_TEMP)
-        SET_PAGEFILE_SIZE: $(pagefile_size)
         BINSTAR_TOKEN: $(BINSTAR_TOKEN)
         FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
         STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
