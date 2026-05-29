@@ -21,3 +21,4 @@ if "%SET_PAGEFILE_SIZE%" GTR "0" (
         PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& '%EntryPointPath%' -MinimumSize "%SET_PAGEFILE_SIZE%GB" -MaximumSize "%SET_PAGEFILE_SIZE%GB" -DiskRoot \"%PageFileDrive%\""
     )
 )
+exit /b
