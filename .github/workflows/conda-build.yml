@@ -31,6 +31,15 @@ jobs:
             build_workspace_dir: C:\dupa
             docker_run_args: 
             pagefile_size: 15
+          - CONFIG: win_arm64_
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: windows
+            runs_on: ['windows-11-arm']
+            tools_install_dir: C:\Miniforge
+            build_workspace_dir: C:\dupa
+            docker_run_args: 
+            pagefile_size: 15
     steps:
 
     - name: Checkout code
