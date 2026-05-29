@@ -27,9 +27,10 @@ jobs:
     UPLOAD_TEMP: D:\\tmp
 
   steps:
-
     - script: |
         call ".scripts\create_pagefile.bat" $(pagefile_size)
+      displayName: Create page file
+    - script: |
         call ".scripts\run_win_build.bat"
       displayName: Run Windows build
       env:
