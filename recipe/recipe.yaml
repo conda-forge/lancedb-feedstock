@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.30.0"
+  version: 0.34.0-beta.1
 
 package:
   name: lancedb
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://github.com/lancedb/lancedb/archive/python-v${{ version }}.tar.gz
-  sha256: bc6f98729534b8f08e15097f2e112d1afaa10eb6891579231ec31ed782c005f4
+  sha256: 6903c63f1ca7f6d20d7f8b5cf70fc72f5a059e8513ded0ce1ec498eba56d9735
 
 build:
-  number: 1
+  number: 0
   skip: match(python, "<3.10")
 
 requirements:
@@ -35,16 +35,14 @@ requirements:
     - openssl
   run:
     - python
-    - deprecation >=2.1.0
-    - lance-namespace >=0.3.2
+    - deprecation
     - tqdm >=4.27.0
     - pydantic >=1.10
-    - packaging >=23.0
-    - pyarrow >=16
+    - packaging
     - if: match(python, "<3.12")
       then: overrides >=0.7
-    - numpy >=1.24.0
-
+    - pylance ==0.19.2-beta.3
+    - nest-asyncio >=1.0,<2.dev0
 tests:
   - python:
       imports:
