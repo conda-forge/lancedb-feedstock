@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.34.0"
+  version: "0.35.0"
 
 package:
   name: lancedb
@@ -12,7 +12,7 @@ source:
   sha256: 60f605c426b644ef2d7a7f0c433e122b1759999db58a65724858ba27b9b1bdd7
 
 build:
-  number: 1
+  number: 0
   skip: match(python, "<3.10")
 
 requirements:
