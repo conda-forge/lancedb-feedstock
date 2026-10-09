@@ -9,11 +9,10 @@ package:
 
 source:
   url: https://github.com/lancedb/lancedb/archive/python-v${{ version }}.tar.gz
-  sha256: 60f605c426b644ef2d7a7f0c433e122b1759999db58a65724858ba27b9b1bdd7
+  sha256: 338b8bc2afb517340d45159ab4bc528f87bcf275b43ab578c4e95861a8513896
 
 build:
   number: 0
-  skip: match(python, "<3.10")
 
 requirements:
   build:
