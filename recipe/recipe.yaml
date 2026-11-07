@@ -20,7 +20,7 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler("rust") }}
     - cargo-bundle-licenses
-    - pkg-config
+    - pkgconf
     - libprotobuf
     - if: build_platform != host_platform
       then:
