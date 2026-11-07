@@ -12,7 +12,7 @@ source:
   sha256: 5e2820bedee7556af2a1194488784a517622cb7c4ead366704e95ea874739358
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,7 +20,7 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler("rust") }}
     - cargo-bundle-licenses
-    - pkg-config
+    - pkgconf
     - libprotobuf
     - if: build_platform != host_platform
       then:
